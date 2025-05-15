@@ -58,9 +58,9 @@ function App() {
     });
 
     gsap.to(".character", {
-      scale: 1.4,
+      scale: 1,
       x: "-50%",
-      bottom: "-25%",
+      bottom: "-40%",
       rotate: 0,
       duration: 2,
       delay: "-.8",
@@ -79,14 +79,18 @@ function App() {
 
     main?.addEventListener("mousemove", function (e) {
       const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
+      const yMove = (e.clientY / window.innerWidth - 0.5) * 40;
       gsap.to(".main .text", {
         x: `${xMove * 0.4}%`,
+        y: `${yMove * 0.4}%`,
       });
       gsap.to(".sky", {
-        x: xMove,
+        x: xMove *2,
+        y: yMove ,
       });
       gsap.to(".bg", {
-        x: xMove * 1.7,
+        x: xMove * 2,
+        y: yMove * 1.7,
       });
     });
   }, [showContent]);
@@ -135,21 +139,36 @@ function App() {
                 <h3 className="text-4xl -mt-[8px] leading-none text-white">
                   Rockstar
                 </h3>
+                  <button className="button-gradient visible">
+                    <div className="btn-content">Join us</div>
+                    <div className="border"></div>
+                    <div className="gradient-0"></div>
+                    <div className="gradient-1"></div>
+                    <div className="glass"></div>
+                    <div className="gradient-2">
+                      <div className="color-1 color"></div>
+                      <div className="color-2 color"></div>
+                      <div className="color-3 color"></div>
+                      <div className="color-4 color"></div>
+                      <div className="color-5 color"></div>
+                      <div className="color-6 color"></div>
+                    </div>
+                  </button>
               </div>
             </div>
 
             <div className="imagesdiv relative overflow-hidden w-full h-screen">
               <img
-                className="absolute sky scale-[1.5] rotate-[-20deg] top-0 left-0 w-full h-full object-cover"
+                className="absolute sky scale-[1.7] rotate-[-20deg] top-0 left-0 w-full h-full object-cover"
                 src="./sky.png"
                 alt=""
               />
               <img
-                className="absolute scale-[1.8] rotate-[-3deg] bg top-0 left-0 w-full h-full object-cover"
+                className="absolute bg scale-[1.5] rotate-[-3deg] bg top-0 left-0 w-full h-full object-cover"
                 src="./bg.png"
                 alt=""
               />
-              <div className="text text-white flex flex-col gap-3 absolute top-20 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg]">
+              <div className="text text-white flex flex-col gap-3 absolute top-0 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg]">
                 <h1 className="text-[12rem] leading-none -ml-40">grand</h1>
                 <h1 className="text-[12rem] leading-none ml-20">theft</h1>
                 <h1 className="text-[12rem] leading-none -ml-40">auto</h1>
@@ -183,7 +202,7 @@ function App() {
                   alt=""
                 />
               </div>
-              <div className="rg w-[30%] py-30">
+              <div className="rg w-[30%] py-0">
                 <h1 className="text-8xl">Still Running,</h1>
                 <h1 className="text-8xl">Not Hunting</h1>
                 <p className="mt-10 text-xl font-[Helvetica_Now_Display]">

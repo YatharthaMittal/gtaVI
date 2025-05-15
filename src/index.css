@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "pricedown";
-  src: url("./pricedown.otf");
+  src: url("/public/pricedown.otf");
 }
 
 html,
@@ -11,3 +11,172 @@ body {
   height: 100%;
   font-family: "pricedown";
 }
+.button-gradient {
+            align-items: center;
+            background: rgba(255, 255, 255, 1);
+            border: 0;
+            border-radius: 25px;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 1);
+            cursor: pointer;
+            display: flex;
+            font-size: 24px;
+            height: 46px;
+            justify-content: center;
+            /* min-height: 46px; */
+            outline: none;
+            overflow: hidden;
+            padding: 10px 25px;
+            position: relative;
+            transition: all .3s ease;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            z-index: 10;
+        }
+
+        .button-gradient .btn-content {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            text-shadow: 0 0 8px rgba(0, 0, 0, .5);
+            z-index: 20;
+        }
+
+        .button-gradient .gradient-0 {
+            background: rgba(255, 255, 255, 1);
+            border-radius: inherit;
+            filter: blur(10px);
+            height: calc(100% - 4px);
+            opacity: 0;
+            position: absolute;
+            transform: scale(.95);
+            transition: all .5s ease;
+            width: calc(100% - 4px);
+            z-index: 12;
+        }
+
+        .button-gradient .gradient-2 {
+            opacity: 0;
+            transform: scale(.95);
+            transition: all .5s ease;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 11;
+            animation: rotateGradient 10s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            0% {
+                transform: scale(.95) rotate(0deg);
+            }
+            100% {
+                transform: scale(.95) rotate(360deg);
+            }
+        }
+
+        .button-gradient.visible .gradient-2,
+        .button-gradient:hover .gradient-2 {
+            opacity: 1;
+            transform: scale(1);
+            animation: rotateGradientHover 10s linear infinite;
+        }
+
+        @keyframes rotateGradientHover {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        .button-gradient .gradient-2 .color-1,
+        .button-gradient .gradient-2 .color-2,
+        .button-gradient .gradient-2 .color-3,
+        .button-gradient .gradient-2 .color-4,
+        .button-gradient .gradient-2 .color-5,
+        .button-gradient .gradient-2 .color-6 {
+            border-radius: 50%;
+            filter: blur(12px);
+            height: 100px;
+            position: absolute;
+            transition: all 2s ease;
+            width: 100px;
+        }
+
+        .button-gradient .gradient-2 .color-1 {
+            background: #02defc;
+            transform: translate(-33%, -43%);
+        }
+
+        .button-gradient .gradient-2 .color-2 {
+            background: #7ffe00;
+            transform: translate(-76%, -27%);
+        }
+
+        .button-gradient .gradient-2 .color-3 {
+            background: #fdf301;
+            transform: translate(-70%, 82%);
+        }
+
+        .button-gradient .gradient-2 .color-4 {
+            background: #f66315;
+            transform: translate(21%, -26%);
+        }
+
+        .button-gradient .gradient-2 .color-5 {
+            background: #fc0197;
+            transform: translate(-19%, 1%);
+        }
+
+        .button-gradient .gradient-2 .color-6 {
+            background: #fe9efb;
+            transform: translate(45%, 44%);
+        }
+
+        .button-gradient.visible:hover .gradient-0 {
+            filter: blur(0);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .button-gradient .gradient-1,
+        .button-gradient .glass {
+            opacity: 0;
+            transition: all .5s ease;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 13;
+        }
+
+        .button-gradient.visible .glass,
+        .button-gradient.visible .gradient-1,
+        .button-gradient:hover .glass,
+        .button-gradient:hover .gradient-1 {
+            opacity: 1;
+        }
+
+        .button-gradient.visible:hover .gradient-2 {
+            animation: rotateGradientHoverExpand 10s linear infinite !important;
+        }
+
+        @keyframes rotateGradientHoverExpand {
+            0% {
+                transform: scale(1.1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.1) rotate(360deg);
+            }
+        }
+
+        .button-gradient .border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            z-index: 14;
+        }
